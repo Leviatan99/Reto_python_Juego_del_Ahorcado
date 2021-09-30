@@ -29,10 +29,10 @@ def run():
     print(read_introduction())
 
     word_to_guess = select_word(data_set)
-    #
-    # print(word_to_guess)
-
-
+    palabra = random.choice(word_to_guess)
+    
+    print(word_to_guess)
+    print(palabra)
     
 if __name__ =='__main__':
     run()
