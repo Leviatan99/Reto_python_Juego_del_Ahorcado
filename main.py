@@ -55,9 +55,19 @@ def run():
     tupla_word_to_guess = select_word(tuplas_list_data_Set)
     word_to_guess = tupla_word_to_guess[1]
     
+    len_word_to_guess = len(word_to_guess)
+    list_len_word_to_guess = list(len_word_to_guess*'_')
+    print(list_len_word_to_guess)
+
+    agregar_elemento = list_len_word_to_guess.insert(1,'hola')
+
+    print(list_len_word_to_guess)
+
+
     print( upper_word( word_to_guess))
-    
-    #print(win())
+
+    print(tupla_word_to_guess)
+
 
 
     
