@@ -1,11 +1,12 @@
-#Este es un programa para cumplir con el reto final del curso de python intermedio
+# Este es un programa para cumplir con el reto final del curso de python intermedio
 import random
 import os
 import unidecode
 
+
 def read_data():
     words = []
-    with open('./data.txt','r',encoding='utf-8') as f:
+    with open('./data.txt', 'r', encoding='utf-8') as f:
         for line in f:
             words.append(line)
     new_words = [line[:-1] for line in words]
@@ -14,10 +15,10 @@ def read_data():
 
 
 def read_introduction():
-    introduction = open ('ahorcado3.txt','r')
+    introduction = open('ahorcado3.txt', 'r')
     mensaje = introduction.read()
     introduction.close()
-    return mensaje    
+    return mensaje
 
 
 def select_word(data_set):
@@ -35,41 +36,78 @@ def upper_word(word_to_guess):
 
 
 def word_slices(word_to_guess):
-    if len(word_to_guess) > 4 :
+    if len(word_to_guess) > 4:
         word_to_print_1 = word_to_guess[0]
         word_to_print_2 = word_to_guess[4]
         word_to_print_3 = word_to_guess[-1]
 
+
 def win():
-    winning_message = open ('win_1.txt','r')
+    winning_message = open('win_1.txt', 'r')
     mensaje = winning_message.read()
     winning_message.close()
     return mensaje
+
+
+def extraer_caracteres(word,maximo):
+    contador = 0
+    matriz_salida = []
+        
+    while contador < maximo :
+            
+        salida = matriz_salida.append( select_word(word))
+        contador = contador + 1
+        
+    return matriz_salida
+    
+
+def caracteres_alazar(word):
+    
+    if len(word) < 3:
+        salida = select_word(word)
+        return salida
+    
+    elif len(word) >= 4 and len(word) <= 5:
+        
+        extraccion = extraer_caracteres(word,2)
+        return extraccion
+    
+    elif len(word) >= 6 and len(word) <= 100:
+        
+        extraccion = extraer_caracteres(word,3)
+        return extraccion
 
 def run():
     data_set = read_data()
     print(read_introduction())
     data_set = normalize(data_set)
-    
+
     tuplas_list_data_Set = list(enumerate(data_set))
     tupla_word_to_guess = select_word(tuplas_list_data_Set)
     word_to_guess = tupla_word_to_guess[1]
-    
+
     len_word_to_guess = len(word_to_guess)
     list_len_word_to_guess = list(len_word_to_guess*'_')
     print(list_len_word_to_guess)
-
-    agregar_elemento = list_len_word_to_guess.insert(1,'hola')
+    
+    agregar_elemento = list_len_word_to_guess.insert(1, 'hola')
 
     print(list_len_word_to_guess)
 
-
-    print( upper_word( word_to_guess))
+    print(upper_word(word_to_guess))
 
     print(tupla_word_to_guess)
 
-
-
+    print('-------------------')
+    print(caracteres_alazar(word_to_guess))
     
-if __name__ =='__main__':
+    print('-------------------')
+    
+    
+    #print(enumerate(list(word_toguess)))
+    
+    
+    
+    
+if __name__ == '__main__':
     run()
